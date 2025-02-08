@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # MSVC 환경 설정
 if (MSVC)
     message(STATUS "Using MSVC Compiler")
-    add_compile_options(/std:c++20 /W4 /WX /MP /utf-8)
+    add_compile_options(/std:c++20 /W4 /MP /utf-8)
     add_definitions(-DWIN32_LEAN_AND_MEAN -D_WIN32_WINNT=0x0601) # Windows 7 이상 지원
 endif()
 
@@ -27,42 +27,27 @@ endif()
 # nlohmann/json 경로 추가 (경로에 맞게 수정)
 include_directories("C:/Users/jeewo/CLionProjects/stans/third_party/nlohmann/include")
 
-# edge_client 정적 라이브러리 빌드 (Optional)
-if (NOT TARGET edge_client_static)
-    add_library(edge_client_static STATIC
-        ../src/edge_client.cpp
-        ../src/lib/edge_client.h
-        ../src/lib/scan_result.h)
+# edge_client 동적 라이브러리 빌드 (DLL)
+add_library(edge_client_shared SHARED
+    ../src/edge_client.cpp
+    ../src/lib/edge_client.h
+    ../src/lib/scan_result.h)
 
-    set_target_properties(edge_client_static PROPERTIES OUTPUT_NAME "edge_Client")
-    install(TARGETS edge_client_static ARCHIVE DESTINATION lib)
+set_target_properties(edge_client_shared PROPERTIES OUTPUT_NAME "libedge_client")
+
+# Windows에서는 DLL을 위한 전처리기 정의 추가
+if (MSVC)
+    target_compile_definitions(edge_client_shared PRIVATE EDGE_CLIENT_EXPORTS)
+    set_target_properties(edge_client_shared PROPERTIES SUFFIX ".dll")
 endif()
 
-# edge_client 동적 라이브러리 빌드 (Windows에서 DLL 생성)
-if (NOT TARGET edge_client_shared)
-    add_library(edge_client_shared SHARED
-        ../src/edge_client.cpp
-        ../src/lib/edge_client.h
-        ../src/lib/scan_result.h)
-
-    set_target_properties(edge_client_shared PROPERTIES OUTPUT_NAME "edge_Client")
-
-    # Windows에서는 .dll로 설정
-    if (MSVC)
-        set_target_properties(edge_client_shared PROPERTIES SUFFIX ".dll")
-    endif()
-
-    install(TARGETS edge_client_shared LIBRARY DESTINATION lib)
-    install(TARGETS edge_client_shared RUNTIME DESTINATION bin) # 실행파일과 같은 위치로 복사
-endif()
+install(TARGETS edge_client_shared RUNTIME DESTINATION bin LIBRARY DESTINATION lib)
 
 # Windows 실행 파일 빌드
-add_executaclient(stans_windows
-        ../src/main.cpp)
+add_executable(stans_windows ../src/main.cpp)
 
 # 실행 파일이 edge_client_shared 동적 라이브러리를 링크하도록 설정
 target_link_libraries(stans_windows PRIVATE edge_client_shared Boost::system Boost::thread)
 
 # 실행 파일과 라이브러리를 같은 경로에 배치
 install(TARGETS stans_windows RUNTIME DESTINATION bin)
-install(FILES ../libedge_client.dll DESTINATION bin) # 실행 파일과 같은 디렉토리에 배치
