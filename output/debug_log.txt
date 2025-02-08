@@ -1,0 +1,57 @@
+[2025/2/6 0:41:0] INFO (EdgeClient:20) - EdgeClient initialized with empty scanResults. [errno: 2 - ENOENT]
+[2025/2/6 0:41:0] INFO (setScanResults:75) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 0:41:0] INFO (setScanResults:78) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 0:41:34] INFO (EdgeClient:20) - EdgeClient initialized with empty scanResults.
+[2025/2/6 0:41:34] INFO (setScanResults:75) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 0:41:34] INFO (setScanResults:78) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:8:15] INFO (EdgeClient:41) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:8:15] INFO (setScanResults:96) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:8:15] INFO (setScanResults:99) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:10:38] INFO (EdgeClient:41) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:10:38] INFO (setScanResults:96) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:10:38] INFO (setScanResults:99) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:12:15] INFO (EdgeClient:41) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:12:15] INFO (setScanResults:96) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:12:15] INFO (setScanResults:99) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:14:30] INFO (EdgeClient:55) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:14:30] INFO (setScanResults:110) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:14:30] INFO (setScanResults:113) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:15:14] INFO (EdgeClient:55) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:15:14] INFO (setScanResults:110) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:15:14] INFO (setScanResults:113) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:19:28] INFO (EdgeClient:55) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:19:28] INFO (setScanResults:110) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:19:28] INFO (setScanResults:113) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:32:49] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:32:49] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:32:49] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:33:46] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:33:46] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:33:46] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:35:11] INFO (EdgeClient:55) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:35:11] INFO (setScanResults:110) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:35:11] INFO (setScanResults:113) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:35:14] INFO (EdgeClient:55) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:35:14] INFO (setScanResults:110) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:35:14] INFO (setScanResults:113) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:35:58] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:35:58] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:35:58] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:44:40] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:44:40] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:44:40] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:50:40] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:50:40] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:50:40] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:52:14] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:52:14] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:52:14] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:52:33] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:52:33] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:52:33] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:53:24] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:53:24] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:53:24] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:54:49] INFO (EdgeClient:56) - EdgeClient initialized with empty scanResults.
+[2025/2/6 1:54:49] INFO (setScanResults:111) - Scan results set: Size=1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]
+[2025/2/6 1:54:49] INFO (setScanResults:114) - HubId: Hub_1234, Logs Count: 1 [ScanResults: HubId=Hub_1234. Logs=012345 ; ]

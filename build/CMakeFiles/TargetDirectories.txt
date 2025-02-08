@@ -1,0 +1,9 @@
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/edge_client_static.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/edge_client_shared.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/stans.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/edit_cache.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/rebuild_cache.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/list_install_components.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/install.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/install/local.dir
+/Users/azabell/Desktop/workspace/stans/client(request_crosscompile)/build/CMakeFiles/install/strip.dir
