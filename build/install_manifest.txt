@@ -1,6 +1,0 @@
-/usr/local/lib/libedge_client.a
-/usr/local/lib/libedge_client.dylib
-/usr/local/lib/libedge_client.a
-/usr/local/lib/libedge_client.dylib
-/usr/local/include/edge_client.h
-/usr/local/include/scan_result.h

@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++ -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -dynamiclib -Wl,-headerpad_max_install_names -o libedge_client.dylib -install_name @rpath/libedge_client.dylib CMakeFiles/edge_client_shared.dir/src/edge_client.cpp.o

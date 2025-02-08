@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libedge_client.a CMakeFiles/edge_client_static.dir/src/edge_client.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libedge_client.a
