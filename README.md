@@ -233,10 +233,6 @@ sudo apt install nlohmann-json3-dev
    - third_party 폴더 생성 -> git clone https://github.com/nlohmann/json.git
    - json폴더 이름을 nlohmann으로 변경
 
-
-### 윈도우 빌드 모습
-![image](https://github.com/user-attachments/assets/1bf3f148-3e42-426b-afd4-ee38d9ffe9ba)  
-
 ### 결과(서버) - D드라이브가 없으므로 0으로 표기됨.
 ```
 Server connected: 192.168.0.31:53031
@@ -246,15 +242,64 @@ Server connected: 192.168.0.31:53031
 Response sent.
 ```
 
-![image](https://github.com/user-attachments/assets/0b8b2450-996e-4bf4-be75-a80afc596a8c)
-
 ------
 
 ## 방법 2. 방법(1)에서 크로스 컴파일을 통해 빌드한 `libedge_client.a`를 활용하여 spdlog랑 fmt 라이브러리를 head-only로 적용한 (리눅스 버전의) Sample.cpp
-https://github.com/Azabell1993/stans_crossSysInfo/blob/352d2d5a33a25b887efe476d5db4a076274b42ee/utility/linux/Sample.cpp#L1-L30
+```
+#include <iostream>
+#include <memory>
+#include <fmt/core.h>
+#include <spdlog/spdlog.h>
+
+// EdgeClient 클래스 선언 (헤더 없이 사용)
+class EdgeClient {
+public:
+    EdgeClient(const std::string& server_ip, unsigned short server_port);
+    std::string getCPUInfo();
+    std::string getMemoryInfo();
+    std::string getDiskInfo();
+};
+
+// 메인 실행 함수
+int main() {
+    spdlog::info("Starting Sample Program...");
+
+    // 안전한 메모리 관리를 위한 unique_ptr 사용
+    auto client = std::make_unique<EdgeClient>("127.0.0.1", 12345);
+
+    // 시스템 정보 조회
+    fmt::print("=== System Information ===\n");
+    fmt::print("CPU Info: {}\n", client->getCPUInfo());
+    fmt::print("Memory Info: {}\n", client->getMemoryInfo());
+    fmt::print("Disk Info: {}\n", client->getDiskInfo());
+
+    spdlog::info("Sample Program Completed.");
+    return 0;
+}
+```
 
 ### 위의 기능을 사용하기 위한 `run.sh`
-https://github.com/Azabell1993/stans_crossSysInfo/blob/352d2d5a33a25b887efe476d5db4a076274b42ee/utility/linux/run.sh#L1-L8
+```
+#!/bin/bash
+
+# 스크립트 에러 발생 시 중단
+set -e
+
+# 빌드 실행
+g++ -std=c++20 -Wall -Wextra -Wpedantic \
+    -o sample Sample.cpp -L. -ledge_client -lfmt -lspdlog -pthread
+```
 
 ### 결과물
-https://github.com/Azabell1993/stans_crossSysInfo/blob/352d2d5a33a25b887efe476d5db4a076274b42ee/utility/linux/result.txt#L1-L10
+```
+azabell@azabellui-MacBookPro linux % ./run.sh 
+azabell@azabellui-MacBookPro linux % ./sample
+[2025-02-08 23:33:48.707] [info] Starting Sample Program...
+[DEBUG] Running on macOS
+[2025/2/8 23:33:48] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults.
+=== System Information ===
+CPU Info: "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz", "Cores": 12, "Usage": 3.72006
+Memory Info: "Total": 34359738368, "Used": 30238330880
+Disk Info: {"/": {"Total": 499963174912, "Available": 246283329536}, "/System/Volumes/Data": {"Total": 499963174912, "Available": 246283329536}}
+[2025-02-08 23:33:48.708] [info] Sample Program Completed.
+```
