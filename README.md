@@ -176,7 +176,8 @@ Response sent.
 ---
 
 ## 윈도우도 가능합니다.
-> https://github.com/Azabell1993/stans_crossSysInfo/tree/main/client(request_crosscompile)/window
+https://github.com/Azabell1993/stans_crossSysInfo/blob/ef520ccdf35b788e2cd42fce247b826d2de54fe9/client(crosscompile)/window/run.bat#L1-L43
+
 에서 .\run.bat을 터미널 혹은 VSCODE에서 실행하시면 가능합니다.
 main.cpp 및 코드는 그대로 유지가 가능하며, 아래처럼 세부 전처리기를 통하여 아키텍처별 컴파일을 유도하였습니다.
 (MAC, Linux, Window)
