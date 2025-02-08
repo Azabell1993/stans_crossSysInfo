@@ -42,13 +42,14 @@ public:
     std::string getDiskInfo();
 
 private:
-    std::string server_ip;
-    unsigned short server_port;
     std::vector<ScanResult> scanResults;
 
     bool running;
     std::shared_ptr<std::thread> scanningThread;
     std::mutex ClientMutex;
+
+    std::string server_ip_;
+    unsigned short server_port_;
 };
 
 #ifdef __cplusplus
