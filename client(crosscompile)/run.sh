@@ -40,7 +40,7 @@ echo "[INFO] pwd"
 pwd
 
 echo "==== Copying libedge_client.a to ../../utility/linux ===="
-cp libedge_client.a ../utility/linux
+cp libedge_client.a ../../utility/linux
 
 # 실행 파일 실행
 echo "===== Running Stans ====="
