@@ -245,6 +245,94 @@ Response sent.
 
 ------
 
+## 방법 2를 하기 위한 순서 GUIDE
+
+azabell@azabellui-MacBookPro stans_crossSysInfo % # git clone https://github.com/Azabell1993/stans_crossSysInfo.git
+
+azabell@azabellui-MacBookPro stans_crossSysInfo % pwd
+/Users/azabell/Desktop/workspace/stans_crossSysInfo
+
+azabell@azabellui-MacBookPro stans_crossSysInfo % ls
+README.md               client(crosscompile)    server(ubuntu)          utility
+
+----> client(crosscompile) 폴더로 이동하여 빌드를 진행한다.
+azabell@azabellui-MacBookPro stans_crossSysInfo % cd client\(crosscompile\) 
+azabell@azabellui-MacBookPro client(crosscompile) % ./run.sh 
+[INFO] Creating new build directory...
+[INFO] Running CMake...
+-- The CXX compiler identification is AppleClang 15.0.0.15000309
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Boost found at /usr/local/include
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/azabell/Desktop/workspace/stans_crossSysInfo/client(crosscompile)/build
+[INFO] Building project using 12 cores...
+[ 33%] Building CXX object CMakeFiles/edge_client_shared.dir/src/edge_client.cpp.o
+[ 33%] Building CXX object CMakeFiles/edge_client_static.dir/src/edge_client.cpp.o
+[ 50%] Linking CXX static library libedge_client.a
+[ 66%] Linking CXX shared library libedge_client.dylib
+[ 66%] Built target edge_client_static
+[ 66%] Built target edge_client_shared
+[ 83%] Building CXX object CMakeFiles/stans.dir/src/main.cpp.o
+[100%] Linking CXX executable stans
+[100%] Built target stans
+[INFO] Installing libraries...
+[ 33%] Built target edge_client_static
+[ 66%] Built target edge_client_shared
+[100%] Built target stans
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /usr/local/lib/libedge_client.a
+-- Installing: /usr/local/lib/libedge_client.dylib
+-- Installing: /usr/local/lib/libedge_client.a
+-- Up-to-date: /usr/local/lib/libedge_client.dylib
+-- Up-to-date: /usr/local/include/edge_client.h
+-- Up-to-date: /usr/local/include/scan_result.h
+[INFO] pwd
+/Users/azabell/Desktop/workspace/stans_crossSysInfo/client(crosscompile)/build
+==== Copying libedge_client.a to ../../utility/linux ====
+===== Running Stans =====
+[DEBUG] Running on macOS
+[2025/2/9 13:15:12] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults.
+[2025/2/9 13:15:12] INFO (setScanResults:143) - Scan results set [ScanResults: HubId=Hub_1234. Logs=+12345 ; ]
+[2025/2/9 13:15:12] INFO (setScanResults:147) - HubId: �%��, Logs Count: 117 [ScanResults: HubId=Hub_1234. Logs=+12345 ; ]
+[2025/2/9 13:15:12] INFO (main:34) - 테스트 대상 서버 및 허브 서비스 초기화 중: 서버 IP=(null), 포트=1828734056 [ScanResults: HubId=Hub_1234. Logs=+12345 ; ]
+[2025/2/9 13:15:12] INFO (main:35) - 로컬 서버 및 허브 스캔 시작. [ScanResults: HubId=Hub_1234. Logs=+12345 ; ]
+[DEBUG] Scanning thread started.
+[DEBUG] scanClientDevices() started...
+[DEBUG] Inside while loop of scanClientDevices()
+[DEBUG] Inside sendToServer()
+[DEBUG] Stopping scanning thread...
+
+----> 여기서 서버가 켜져있으면 정보가 추가로 출력이 되고, 서버로 송신이 됨. 
+----> 지금은 libedge_client.a 만 얻기 위함이므로 [Ctrl + C]를 입력한다.
+^C
+
+----> 상위 폴더 utility/linux로 이동하여 libedge_client.a를 확인한다.
+azabell@azabellui-MacBookPro client(crosscompile) % cd ../utility/linux 
+azabell@azabellui-MacBookPro linux % ls
+libedge_client.a                 run.sh                           sample.cpp
+
+----> 이제 run.sh를 하면 알아서 libedge_client.a를 활용하여 실행이 되고 결과물이 나온다.
+azabell@azabellui-MacBookPro linux % ./run.sh 
+azabell@azabellui-MacBookPro linux % cat result_log.txt 
+[2025-02-09 13:15:38.484] [info] Starting Sample Program...
+[DEBUG] Running on macOS
+[2025/2/9 13:15:38] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults. [errno: 25 - ENOTTY]
+=== System Information ===
+CPU Info: "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz", "Cores": 12, "Usage": 15.6642
+Memory Info: "Total": 34359738368, "Used": 16816992256
+Disk Info: {"/": {"Total": 499963174912, "Available": 246629343232}, "/System/Volumes/Data": {"Total": 499963174912, "Available": 246629343232}}
+[2025-02-09 13:15:38.485] [info] Sample Program Completed.
+azabell@azabellui-MacBookPro linux %
+
 ## 방법 2. 방법(1)에서 크로스 컴파일을 통해 빌드한 `libedge_client.a`를 활용하여 spdlog랑 fmt 라이브러리를 head-only로 적용한 (리눅스 버전의) Sample.cpp
 ```
 #include <iostream>
@@ -293,14 +381,14 @@ g++ -std=c++20 -Wall -Wextra -Wpedantic \
 
 ### 결과물
 ```
-azabell@azabellui-MacBookPro linux % ./run.sh 
-azabell@azabellui-MacBookPro linux % ./sample
-[2025-02-08 23:33:48.707] [info] Starting Sample Program...
+azabell@azabellui-MacBookPro linux % ./run.sh
+azabell@azabellui-MacBookPro linux % cat result_log.txt
+[2025-02-09 13:13:50.935] [info] Starting Sample Program...
 [DEBUG] Running on macOS
-[2025/2/8 23:33:48] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults.
+[2025/2/9 13:13:50] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults. [errno: 25 - ENOTTY]
 === System Information ===
-CPU Info: "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz", "Cores": 12, "Usage": 3.72006
-Memory Info: "Total": 34359738368, "Used": 30238330880
-Disk Info: {"/": {"Total": 499963174912, "Available": 246283329536}, "/System/Volumes/Data": {"Total": 499963174912, "Available": 246283329536}}
-[2025-02-08 23:33:48.708] [info] Sample Program Completed.
+CPU Info: "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz", "Cores": 12, "Usage": 17.9918
+Memory Info: "Total": 34359738368, "Used": 16460898304
+Disk Info: {"/": {"Total": 499963174912, "Available": 246636974080}, "/System/Volumes/Data": {"Total": 499963174912, "Available": 246636974080}}
+[2025-02-09 13:13:50.937] [info] Sample Program Completed.
 ```

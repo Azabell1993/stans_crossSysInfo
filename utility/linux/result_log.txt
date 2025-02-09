@@ -1,0 +1,8 @@
+[2025-02-09 13:15:38.484] [info] Starting Sample Program...
+[DEBUG] Running on macOS
+[2025/2/9 13:15:38] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults. [errno: 25 - ENOTTY]
+=== System Information ===
+CPU Info: "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz", "Cores": 12, "Usage": 15.6642
+Memory Info: "Total": 34359738368, "Used": 16816992256
+Disk Info: {"/": {"Total": 499963174912, "Available": 246629343232}, "/System/Volumes/Data": {"Total": 499963174912, "Available": 246629343232}}
+[2025-02-09 13:15:38.485] [info] Sample Program Completed.
