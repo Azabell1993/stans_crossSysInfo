@@ -244,18 +244,36 @@ Response sent.
 ```
 
 ------
+# 방법 2를 하기 위한 'libedge_client.a' 정적 라이브러리 크로스 컴파일 상세 GUIDE
 
-## 방법 2를 하기 위한 순서 GUIDE
+## 1. 프로젝트 클론 및 폴더 확인
 
-azabell@azabellui-MacBookPro stans_crossSysInfo % # git clone https://github.com/Azabell1993/stans_crossSysInfo.git
+```sh
+# 프로젝트 클론
+git clone https://github.com/Azabell1993/stans_crossSysInfo.git
 
-azabell@azabellui-MacBookPro stans_crossSysInfo % pwd
-/Users/azabell/Desktop/workspace/stans_crossSysInfo
+# 현재 작업 디렉토리 확인
+pwd
+# 출력 예시: /Users/azabell/Desktop/workspace/stans_crossSysInfo
 
-azabell@azabellui-MacBookPro stans_crossSysInfo % ls
-README.md               client(crosscompile)    server(ubuntu)          utility
+# 프로젝트 디렉토리 내부 확인
+ls
+# 출력 예시:
+# README.md               client(crosscompile)    server(ubuntu)          utility
+```
 
-----> client(crosscompile) 폴더로 이동하여 빌드를 진행한다.
+## 2. `client(crosscompile)` 빌드 및 실행
+
+```sh
+# client(crosscompile) 폴더로 이동
+cd client\(crosscompile\)
+
+# 빌드 및 실행
+./run.sh
+```
+
+### 실행 로그 예시
+```sh
 azabell@azabellui-MacBookPro stans_crossSysInfo % cd client\(crosscompile\) 
 azabell@azabellui-MacBookPro client(crosscompile) % ./run.sh 
 [INFO] Creating new build directory...
@@ -310,30 +328,26 @@ Install the project...
 [DEBUG] Inside while loop of scanClientDevices()
 [DEBUG] Inside sendToServer()
 [DEBUG] Stopping scanning thread...
+```
 
-----> 여기서 서버가 켜져있으면 정보가 추가로 출력이 되고, 서버로 송신이 됨. 
-----> 지금은 libedge_client.a 만 얻기 위함이므로 [Ctrl + C]를 입력한다.
-^C
+- **서버가 실행 중일 경우**, 클라이언트에서 추가 정보를 출력하고 서버로 데이터를 송신합니다.
+- **현재 목적은 `libedge_client.a`만 얻는 것**이므로 실행 중 `[DEBUG] Stopping scanning thread...`가 보인다면 [Ctrl + C]를 입력하여 종료할 수 있습니다.
 
-----> 상위 폴더 utility/linux로 이동하여 libedge_client.a를 확인한다.
-azabell@azabellui-MacBookPro client(crosscompile) % cd ../utility/linux 
-azabell@azabellui-MacBookPro linux % ls
-libedge_client.a                 run.sh                           sample.cpp
 
-----> 이제 run.sh를 하면 알아서 libedge_client.a를 활용하여 실행이 되고 결과물이 나온다.
-azabell@azabellui-MacBookPro linux % ./run.sh 
-azabell@azabellui-MacBookPro linux % cat result_log.txt 
-[2025-02-09 13:15:38.484] [info] Starting Sample Program...
-[DEBUG] Running on macOS
-[2025/2/9 13:15:38] INFO (EdgeClient:57) - EdgeClient initialized with empty scanResults. [errno: 25 - ENOTTY]
-=== System Information ===
-CPU Info: "Model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz", "Cores": 12, "Usage": 15.6642
-Memory Info: "Total": 34359738368, "Used": 16816992256
-Disk Info: {"/": {"Total": 499963174912, "Available": 246629343232}, "/System/Volumes/Data": {"Total": 499963174912, "Available": 246629343232}}
-[2025-02-09 13:15:38.485] [info] Sample Program Completed.
-azabell@azabellui-MacBookPro linux %
+## 3. `libedge_client.a` 확인 및 서버 실행
 
-## 방법 2. 방법(1)에서 크로스 컴파일을 통해 빌드한 `libedge_client.a`를 활용하여 spdlog랑 fmt 라이브러리를 head-only로 적용한 (리눅스 버전의) Sample.cpp
+빌드 완료 후 자동으로 `libedge_client.a`가 복사됩니다.
+
+```sh
+# 상위 폴더로 이동하여 라이브러리 확인
+cd ../utility/linux
+ls
+# 출력 예시:
+# libedge_client.a                 run.sh                           sample.cpp
+```
+
+## 4. 위의 크로스 컴파일을 통해 빌드한 `libedge_client.a`를 활용하여 spdlog랑 fmt 라이브러리를 head-only로 적용한 (리눅스 버전의) Sample.cpp
+
 ```
 #include <iostream>
 #include <memory>
@@ -367,7 +381,7 @@ int main() {
 }
 ```
 
-### 위의 기능을 사용하기 위한 `run.sh`
+### 5. 위의 코드를 컴파일 할 `run.sh`
 ```
 #!/bin/bash
 
