@@ -3,7 +3,7 @@
 
 유튜브 링크 : https://youtu.be/WDvIzgrPxZA
 
-## 방법 1. 클라이언트 <-> 서버 통신
+## 방법 1. 클라이언트 <-> 서버 통신 및 system 정보 수집 상세 GUIDE
 
 ### 서버에서 받은 result.txt 모습
 https://github.com/Azabell1993/stans_crossSysInfo/blob/0e226863757acb5502f61cf50541b1895e5ca638/result.txt#L40-L49
@@ -244,7 +244,7 @@ Response sent.
 ```
 
 ------
-# 방법 2를 하기 위한 'libedge_client.a' 정적 라이브러리 크로스 컴파일 상세 GUIDE
+# 방법 2. 'libedge_client.a' 정적 라이브러리 크로스 컴파일 및 `Sample.cpp` 상세 GUIDE
 
 ## 1. 프로젝트 클론 및 폴더 확인
 
