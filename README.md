@@ -5,8 +5,8 @@
 
 ## 방법 1. 클라이언트 <-> 서버 통신 및 system 정보 수집 상세 GUIDE
 
-### 서버에서 받은 result.txt 모습
-https://github.com/Azabell1993/stans_crossSysInfo/blob/0e226863757acb5502f61cf50541b1895e5ca638/result.txt#L40-L49
+### 서버에서 받은 result_log.txt 모습
+[https://github.com/Azabell1993/stans_crossSysInfo/blob/0e226863757acb5502f61cf50541b1895e5ca638/result.txt#L40-L49](https://github.com/Azabell1993/stans_crossSysInfo/blob/fd180ebc568dab312111e6e967beab7b6230f033/utility/linux/result_log.txt#L1-L8)
 
 ## 개요
 
